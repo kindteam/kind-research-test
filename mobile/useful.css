@@ -1,0 +1,56 @@
+
+/*禁止用户选中*/
+body {
+    -webkit-user-select: none;
+}
+
+/*ios原生滚动*/
+body{
+    -webkit-overflow-scrolling: touch;
+}
+
+/*假如用户长按a标签，都会出现默认的弹出菜单事件,禁止原生弹出菜单*/
+body {
+    -webkit-touch-callout: none;
+}
+
+/*消除ie10里面的那个叉号*/
+input:-ms-clear{display:none;}
+
+/*ios浏览器横屏时会重置字体大小，设置 text-size-adjust 为 none 可以解决ios上的问题，*/
+/*但桌面版safari的字体缩放功能会失效，因此最佳方案是将 text-size-adjust 为 100% 。*/
+body{
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/*click 事件普遍 300ms 的延迟
+Now some mobile browsers eliminate 300 ms click delay if you set the viewport. You dont need to use workarounds anymore.
+<meta name="viewport" content="width=device-width, user-scalable=no">
+*/
+
+/*
+使用css3动画的时尽量利用3D加速，从而使得动画变得流畅。
+动画过程中的动画闪白可以通过backface-visibility 隐藏。
+*/
+body{
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+}
+
+/*
+css中的Element:hover 不生效的情况
+在<body ontouchstart=""> 解决
+*/
+
+
+.aaa {
+    -webkit-appearance:none
+}
+
+
+
+
+
+

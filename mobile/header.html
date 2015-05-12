@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--
+    viewport是一个针对移动web的meta标签，它的主要属性如下：
+    width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。
+    height：和 width 相对应，指定高度。
+    initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。
+    maximum-scale：允许用户缩放到的最大比例。
+    minimum-scale：允许用户缩放到的最小比例。
+    user-scalable：用户是否可以手动缩放
+    -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!--IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--Chrome Frame[1]：Chrome Frame可以让旧版IE浏览器使用Chrome的WebKit渲染引擎处理网页，因此旧版IE用户可以体验到包括HTML5在内的众多现代网页技术。-->
+
+
+    <!--是否自动把电话号码转为链接-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+
+
+    <!-- 当用户使用全屏浏览时，将状态条设置为黑色 -->
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”black” />
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”default” />
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”black-translucent” />
+
+
+    <!--iphone 添加到主屏幕的图标-->
+    <!--
+       iOS设备icon	最适尺寸(px)
+       iPhone 和 iTouch	                57 x 57
+       retina iPhone 和 retina iTouch	114 x 114
+       iPad	                            72 x 72
+       retina iPad                      144 x 144
+    -->
+
+       <!--通过 apple-touch-icon 添加的图标是会带iOS图标统一的高光效果-->
+    <link rel="apple-touch-icon" href="head.jpg"/>
+
+    <!--通过 apple-touch-icon-precomposed 添加的图标则是设计原图，不带高光渐变效果的。-->
+    <link rel="apple-touch-icon-precomposed" href="touch-icon-precomposed.png" />
+
+
+    <!--相应地，要指定不同分辨率的设备的图标，可以添加相应的 <link> 标签序列，官方建议的顺序是这样的-->
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="touch-icon-ipad-retina.png" />
+    <!--
+    如果整个页面都没有指定任何的 apple-touch-icon 的图标的话，iOS则会自动去网站根目录寻找
+    有 apple-touch-icon 和 apple-touch-icon-precomposed 前缀的图标文件。
+    -->
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>
