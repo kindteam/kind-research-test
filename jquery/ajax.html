@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.7.2.js"></script>
+    <!--<script src="test.js" charset="gbk"></script>-->
+</head>
+<body>
+
+<div id="results">
+
+</div>
+
+<script>
+
+/*
+type: GET | POST
+
+dataType: json | script | jsonp | text | html | xml
+
+
+*/
+
+    $.ajax({
+        url: 'data.php',
+        dataType: 'json',
+        dataFilter: function(text, dataType) {
+//            给Ajax返回的原始数据的进行预处理的函数
+            var jsonData = $.parseJSON(text);
+            if(jsonData.name = 123) {
+                jsonData.name = 'tom';
+            }
+
+            return JSON.stringify(jsonData);
+        },
+        success:function(data) {
+            console.log(data)
+        }
+    });
+
+
+    // jsonp  dataFilter
+//    $.ajax({
+//        url: 'jsonp.js',
+//        dataType: 'jsonp',
+//        jsonpCallback: 'callback1',
+//        success: function(msg) {
+//            console.log('success', msg)
+//        }
+//    }).done(function(msg) {
+//        console.log('done', msg)
+//    });
+
+
+//  processData
+//    $.ajax({
+//        url: "data.php",
+//        type: 'POST',
+//        processData: false,
+///*
+// (默认: true) 默认情况下，通过data选项传递进来的数据，
+// 如果是一个对象(技术上讲只要不是字符串)，都会处理转化成一个查询字符串，
+// 以配合默认内容类型 "application/x-www-form-urlencoded"。
+// 如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。
+// */
+//        data: JSON.stringify({
+//            name: 'John',
+//            location: 'Boston'
+//        }),
+//        success: function(msg){
+//            console.log( "Data Saved: " + msg );
+//        }
+//    });
+
+//      @todo 这个编码转换不了
+//    请求script， 请求的test.js文件是用gbk编码，而当前页面是UTF-8，所以会出现乱码
+//    $.ajax({
+//        url: 'test.js',
+//        scriptCharset: 'gbk',
+//        dataType: 'script', //这里修改的是request的headers[Accept]
+//        success: function() {
+//            console.log('success');
+//            $('#results').html(test)
+//        }
+//    });
+
+//    done 函数
+//    var defer = $.ajax({
+//        url: 'data.php',
+//        dataType: 'json'
+//    });
+//    defer.done(function(data, status, xhr) {
+//        console.log(data, status, xhr)
+//    });
+
+
+//    type默认是GET
+//    $.ajax({
+//        url: "data.php",
+//        type: 'POST',
+////        data: "name=John&location=Boston",
+//        data: {
+//            name: 'John',
+//            location: 'Boston'
+//        },
+//        success: function(msg){
+//            console.log( "Data Saved: " + msg );
+//        }
+//    });
+
+
+    //插入HTML片段, 并且可以执行js
+//    $.ajax({
+//        url: "Frag.html",
+//        cache: false,
+//        success: function(html){
+//            $("#results").append(html);
+//        }
+//    });
+
+
+// 会顺序执行
+//alert(1);
+////    同步加载数据
+//    var html = $.ajax({
+//        url: "data.php",
+//        async: false,
+//        success: function(data, status, xhr) {
+//            console.log(data)
+//            alert(2)
+//        }
+//    });
+//alert(3);
+
+
+// 请求错误的情况
+//    $.ajax({
+//        url: "error.php",
+//        success: function(data, status, xhr) {
+//            console.log('success');
+//        },
+//        //404
+//        error: function(xhr, status, msg) {
+//            console.log('error');
+//            console.log(xhr, status, msg)
+//        }
+//    });
+
+//    $.ajax({
+//        url: "error.php",
+//        success: function(data, status, xhr) {
+//            console.log('success');
+//        },
+//        statusCode: {
+//            404: function(data, status, xhr) {
+//                console.log(data, status, xhr);
+//            },
+//            200: function(data, status, xhr) {
+//                console.log(data, status, xhr);
+//            }
+//        }
+//    });
+
+
+</script>
+</body>
+</html>
