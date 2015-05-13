@@ -3,41 +3,147 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="jquery-1.7.2.js"></script>
+    <script src="../jquery-1.7.2.js"></script>
     <!--<script src="test.js" charset="gbk"></script>-->
 </head>
 <body>
 
-<div id="results">
+<div id="results"></div>
 
-</div>
+<ul id="list"></ul>
 
 <script>
 
+
+
+//    $.ajax({
+//        url: 'http://www.baidu.com',
+//        success: function(data) {
+//        }
+//    });
+
+// 去掉Cookie
+//$.ajax({
+//    headers: {'Cookie' : document.cookie }, //无法设置
+//    url: "data.php",
+//    success: function(){}
+//});
+
+// global
+
+//$.ajaxSetup({
+//    global: false, //是否出发全局事件
+//    type: "POST",
+//    dataType: 'JSON',
+//    cache: false,
+//    dataFilter: function(text, dataType) {
+////   给Ajax返回的原始数据的进行预处理的函数
+//        var jsonData = $.parseJSON(text);
+//        if(jsonData.result = true) {
+//            jsonData.result = false;
+//        }
+//
+//        return JSON.stringify(jsonData);
+//    },
+//    error: function(xhr, status, msg) {
+//            console.log(xhr, status, msg);
+//            console.log('error trigger');
+//    },
+//    statusCode: {
+//        404: function(xhr, status, msg) {
+////            console.log(xhr, status, msg);
+//            console.log('statusCode.404 trigger');
+//        },
+//        200: function(data, status, xhr) {
+//
+//        }
+//    }
+//});
+
+//$.ajax({
+//    url: 'data.php',
+//    headers: {
+//        h1: 123,
+//        h2: 234
+//    },
+//    success: function(data) {
+//        console.log(data);
+//    }
+//});
+
+
+//    $(document).ajaxComplete(function(event, xhr, options) {
+//        console.log('%c ajaxComplete...', 'color:green');
+//    });
+//
+//    $(document).ajaxError(function(event, xhr, options) {
+//        console.log('%c ajaxError...', 'color:green');
+//    });
+//
+//    $(document).ajaxSend(function(event, xhr, options) {
+//        console.log('%c ajaxSend...', 'color:green');
+//    });
+//
+//    $(document).ajaxStart(function(event) {
+//        console.log('%c ajaxStart...', 'color:green');
+//    });
+//
+//    $(document).ajaxStop(function(event) {
+//        console.log('%c ajaxStop...', 'color:green');
+//    });
+//
+//    $(document).ajaxSuccess(function(event, xhr, options, data) {
+//        console.log('%c ajaxSuccess...', 'color:green');
+//    });
+
+
+//$('#list').load('list.html');
+
 /*
 type: GET | POST
-
 dataType: json | script | jsonp | text | html | xml
-
-
 */
 
-    $.ajax({
-        url: 'data.php',
-        dataType: 'json',
-        dataFilter: function(text, dataType) {
-//            给Ajax返回的原始数据的进行预处理的函数
-            var jsonData = $.parseJSON(text);
-            if(jsonData.name = 123) {
-                jsonData.name = 'tom';
-            }
+// $.post
+//$.post('data.php', {name: 123}, function(data) {
+//    console.log(data)
+//}, 'json');
 
-            return JSON.stringify(jsonData);
-        },
-        success:function(data) {
-            console.log(data)
-        }
-    });
+
+//  $.get
+//  url,[data],[callback],[dataType]
+//  $.get('data.php', {name: 123}, function(data) {
+//    console.log(data)
+//  }, 'json');
+
+
+//  $.getScript
+//  $.getScript('test.js', function() {
+//});
+
+
+//  默认是GET
+//$.getJSON('data.php', {name: 123}, function(data) {
+//   console.log(data);
+//});
+
+//  dataFilter
+//    $.ajax({
+//        url: 'data.php',
+//        dataType: 'json',
+//        dataFilter: function(text, dataType) {
+////            给Ajax返回的原始数据的进行预处理的函数
+//            var jsonData = $.parseJSON(text);
+//            if(jsonData.name = 123) {
+//                jsonData.name = 'tom';
+//            }
+//
+//            return JSON.stringify(jsonData);
+//        },
+//        success:function(data) {
+//            console.log(data)
+//        }
+//    });
 
 
     // jsonp  dataFilter
@@ -79,7 +185,7 @@ dataType: json | script | jsonp | text | html | xml
 //        url: 'test.js',
 //        scriptCharset: 'gbk',
 //        dataType: 'script', //这里修改的是request的headers[Accept]
-//        success: function() {
+//        success: function(content, status, xhr) {
 //            console.log('success');
 //            $('#results').html(test)
 //        }
@@ -153,8 +259,8 @@ dataType: json | script | jsonp | text | html | xml
 //            console.log('success');
 //        },
 //        statusCode: {
-//            404: function(data, status, xhr) {
-//                console.log(data, status, xhr);
+//            404: function(xhr, status, res) {
+//                console.log(xhr, status, res);
 //            },
 //            200: function(data, status, xhr) {
 //                console.log(data, status, xhr);
